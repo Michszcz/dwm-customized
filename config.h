@@ -81,6 +81,8 @@ static const char *volup[] 	= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+
 static const char *voldown[]  	= { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *volmute[]  	= { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *micmute[]  	= { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
+static const char *xbacklightup[]  	= { "xbacklight", "-dec", "5", NULL };
+static const char *xbacklightdown[]  	= { "xbacklight", "-inc", "5", NULL };
 
 static const char *play_pause[]	= { "mpc", "toggle", NULL };
 static const char *prev_song[]  = { "mpc", "prev", NULL };
@@ -107,6 +109,8 @@ static Key keys[] = {
 	{ 0,    			XF86XK_AudioLowerVolume, spawn,        {.v = voldown } },
 	{ 0,		 	        XF86XK_AudioMute,      	 spawn,        {.v = volmute } },
 	{ 0,		 	        XF86XK_AudioMicMute,      	 spawn,        {.v = micmute } },
+	{ 0,		 	        XF86XK_MonBrightnessDown,      	 spawn,        {.v = xbacklightup } },
+	{ 0,		 	        XF86XK_MonBrightnessUp,      	 spawn,        {.v = xbacklightdown } },
 
 	{ ControlMask, 			XK_Right,      spawn,                  {.v = volup } } ,
 	{ ControlMask,    		XK_Left,       spawn,                  {.v = voldown } },
